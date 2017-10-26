@@ -13,13 +13,24 @@ use golibplugin\Plugin;
  */
 class Fetch extends Plugin\Provider {
 
+    const ENV_COMMAND_LINE = 'command-line';
+    const ENV_JSON = 'json';
+    const ENV_HTML = 'html';
+
     /**
      * the report collection
      * @var Report\Collection
      */
     private $reportCollection = NULL;
 
-    public function __construct ( $reportFileName = NULL ) {
+    /**
+     * defines the environment where we running
+     * @var string
+     */
+    private $environment = NULL;
+
+    public function __construct ( $env = self::ENV_COMMAND_LINE ) {
+        $this->environment = $env;
         $this->init();
     }
 
@@ -43,6 +54,9 @@ class Fetch extends Plugin\Provider {
                 $returns = $this->callPlugins( 'parseResult', $rep );
             }
         }
+
+        $feedback = $this->callPlugins( 'getFeedback', $this->environment );
+        return $feedback->response;
     }
 
     private function loadReport () {

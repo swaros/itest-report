@@ -24,6 +24,8 @@ class Fetch extends Plugin\Provider {
     }
 
     private function init () {
+        // initialize config reader.
+        $loader = new iConfig\Loader();
         $this->reportCollection = new Report\Collection();
     }
 

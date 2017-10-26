@@ -9,7 +9,7 @@ use itest\Display\Report;
  * for working with reports
  * @author tziegler
  */
-interface ReportPlugin {
+interface ReportPlugin extends \golibplugin\Plugin\Plugin {
 
     /**
      * initial run

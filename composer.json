@@ -1,0 +1,32 @@
+{
+    "name": "gorgo/itest-report",
+    "type": "library",
+    "description": "Description of project itest-report.",
+    "authors": [
+        {
+            "name": "Thomas Ziegler",
+            "email": "tziegler@googlemail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.0",
+        "gorgo/itest": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@github.com:swaros/phpIntegration.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/swaros/golib-plugin.git"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "itestreport\\": "src/"
+        }
+    }
+}
